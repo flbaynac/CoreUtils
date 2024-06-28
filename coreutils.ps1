@@ -130,7 +130,7 @@ function mini-u {
         $_.Name -eq $MainMenuSelection
     }
     $SubMenu = ($SubMenuOptions.Value | %{$_.PSObject.Properties | ?{$_.Name -ne 'Description'}})
-    $MenuOptionSelection = Menu $SubMenu.Name "Select a submenu option" $SubMenu
+    $MenuOptionSelection = Menu $SubMenu.Name "Selecione una opcion del sub-menu" $SubMenu
     return $MenuOptionSelection
 }
 # Lanza interfaz y selecciona accion usuario
