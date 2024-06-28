@@ -53,12 +53,12 @@ function Draw-Menu {
 
     Clear-Host
     Write-Host ""
-    Write-Host "`t   _____                 _    _ _   _ _     " -ForegroundColor red
-    Write-Host "`t  / ____|               | |  | | | (_) |    " -ForegroundColor red
-    Write-Host "`t | |     ___  _ __ ___  | |  | | |_ _| |___ " -ForegroundColor red
-    Write-Host "`t | |    / _ \| '__/ _ \ | |  | | __| | / __|" -ForegroundColor red
-    Write-Host "`t | |___| (_) | | |  __/ | |__| | |_| | \__ \" -ForegroundColor red
-    Write-Host "`t  \_____\___/|_|  \___|  \____/ \__|_|_|___/" -ForegroundColor red
+    Write-Host "`t   _____                 _    _ _   _ _     " -ForegroundColor green
+    Write-Host "`t  / ____|               | |  | | | (_) |    " -ForegroundColor green
+    Write-Host "`t | |     ___  _ __ ___  | |  | | |_ _| |___ " -ForegroundColor green
+    Write-Host "`t | |    / _ \| '__/ _ \ | |  | | __| | / __|" -ForegroundColor green
+    Write-Host "`t | |___| (_) | | |  __/ | |__| | |_| | \__ \" -ForegroundColor yellow
+    Write-Host "`t  \_____\___/|_|  \___|  \____/ \__|_|_|___/" -ForegroundColor yellow
     Write-Host ""
     Write-Host "`t`tBy Facundo Baynac"
     Write-Host "`t`thttps://flbaynac.com.ar"
