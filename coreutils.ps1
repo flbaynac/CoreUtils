@@ -1,29 +1,31 @@
 # Instalar  y verificar dependencias
 try {
- "Verificando si Git esta instalado..."
- git -v
+	"Verificando si Git esta instalado..."
+	git -v
 } catch {
- "Git no instalado, instalando a traves de scoop..."
- try {
-  scoop install git
-  try {
-    git -v
-  } catch { 
-    Write-Host "ERROR FATAL: No se pudo instalar git" -ForegroundColor red 
-  }
- } catch { 
-   "Scoop no instalado, instalando..."
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-   Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
-   scoop install git
- }
+	"Git no instalado, instalando a traves de scoop..."
+	try {
+		scoop install git
+			try {
+				git -v
+			} catch { 
+				Write-Host "ERROR FATAL: No se pudo instalar git" -ForegroundColor red
+			}
+	} catch { 
+		"Scoop no instalado, instalando..."
+		Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+		Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+		scoop install git
+	}
 }
+
 scoop update
 scoop bucket add extras
 scoop bucket add games
+
 # Definir funciones interfaz
 function Draw-Menu {
-    [CmdletBinding()]
+	[CmdletBinding()]
     param (
         [Parameter()]
         [String[]]
@@ -49,7 +51,7 @@ function Draw-Menu {
     $leftTitlePadding = ($consoleWidth - $menuTitle.Length) / 2
     $titlePaddingString = ' ' * ([Math]::Max(0, $leftTitlePadding))
     $leftDescriptionPadding = ($consoleWidth - $secondaryKey.Length) / 2
-    $descriptionPaddingString = ' ' * ([Math]::Max(0, $leftDescriptionPadding))
+	$descriptionPaddingString = ' ' * ([Math]::Max(0, $leftDescriptionPadding))
 
     Clear-Host
     Write-Host ""
@@ -86,6 +88,7 @@ function Draw-Menu {
     # Display the description after the menu is rendered.
     Write-Host "`t$currentDescription"
 }
+
 function Menu {
     [CmdletBinding()]
     param (
@@ -121,6 +124,7 @@ function Menu {
     }
     return $($menuItems[$pos])
 }
+
 function mini-u {
     $MainMenu = (Invoke-webrequest -URI https://raw.githubusercontent.com/flbaynac/CoreUtils/main/menu.json | ConvertFrom-Json).PSObject.Properties
 # Para testear localmente comentar la linea de arriba y descomentar la de abajo
@@ -133,6 +137,7 @@ function mini-u {
     $MenuOptionSelection = Menu $SubMenu.Name "Selecione una opcion del sub-menu" $SubMenu
     return $MenuOptionSelection
 }
+
 # Lanza interfaz y selecciona accion usuario
 switch -Exact (mini-u) {
   "Backup_Users" {"backapeando usuarios..."}
